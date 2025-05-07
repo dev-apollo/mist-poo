@@ -10,6 +10,9 @@ public class Desenvolvedor extends Usuario{
         super(nome, email, senha);
         this.acervo = new Acervo(this);
     }
+    public void visualizarAcervo(){
+        acervo.exibirProdutos();
+    }
 
     public void adicionarProduto(Produto produto){
         this.acervo.adicionarProduto(produto);;

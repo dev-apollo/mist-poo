@@ -6,11 +6,13 @@ import classes.usuarios.Cliente;
 import classes.usuarios.Desenvolvedor;
 import classes.usuarios.Usuario;
 import classes.utilitarios.Autenticador;
+import classes.utilitarios.Menu;
 
 public class App {
     public static void main(String[] args) throws Exception {
         Autenticador autenticador = new Autenticador();
         Scanner scanner = new Scanner(System.in);
+        Menu menu = new Menu();
 
         // Logins para a 1ª Entrega
         Cliente c1 = new Cliente("Apollo", "apollo@email.com","ap123");
@@ -34,8 +36,14 @@ public class App {
                 System.out.println("Email ou senha inválida.");
             }
         }
-
+        int opcao = 1;
         System.out.println("Seja bem-vindo, "+u1.getNome()+"!");
+        while(opcao != 0) {
+            menu.exibirMenu(u1);
+            opcao = scanner.nextInt();
+            menu.receberOpcao(u1, opcao);
+        }
+        System.out.println("Saindo...");
         scanner.close();
     }
 }

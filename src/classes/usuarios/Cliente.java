@@ -11,6 +11,11 @@ public class Cliente extends Usuario{
         this.biblioteca = new Biblioteca(this);
     }
 
+    public void visualizarBiblioteca(){
+        System.out.println("Biblioteca de "+this.getNome()+":");
+        biblioteca.exibirProdutos();
+    }
+
     public void adicionarProduto(Produto produto) {
         this.biblioteca.adicionarProduto(produto);
     }

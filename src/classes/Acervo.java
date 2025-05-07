@@ -16,6 +16,12 @@ public class Acervo implements ControleDeProdutos{
         this.produtos = new ArrayList<Produto>();
     }
 
+    public void exibirProdutos(){
+        for (Produto produto : produtos) {
+            System.out.println(produto.getNome()+" - "+produto.getTipoDeProduto()+" - "+produto.getPreco());
+        }
+    }
+
     public void adicionarProduto(Produto produto){
         this.produtos.add(produto);
     }

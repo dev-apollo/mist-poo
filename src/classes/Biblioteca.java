@@ -16,6 +16,12 @@ public class Biblioteca implements ControleDeProdutos{
         this.produtos = new ArrayList<Produto>();
     }
 
+    public void exibirProdutos(){
+        for (Produto produto : produtos) {
+            System.out.println(produto.getNome()+" - "+produto.getTipoDeProduto()+" - "+produto.getDesenvolvedor().getNome());
+        }
+    }
+
     public void adicionarProduto(Produto produto){
         this.produtos.add(produto);
     }
