@@ -17,8 +17,12 @@ public class Biblioteca implements ControleDeProdutos{
     }
 
     public void exibirProdutos(){
-        for (Produto produto : produtos) {
-            System.out.println(produto.getNome()+" - "+produto.getTipoDeProduto()+" - "+produto.getDesenvolvedor().getNome());
+        if(!produtos.isEmpty()){
+            for (Produto produto : produtos) {
+                System.out.println(produto.getNome()+" - "+produto.getTipoDeProduto()+" - "+produto.getDesenvolvedor().getNome());
+            }
+        }else{
+            System.out.println("A sua biblioteca está vazia.");
         }
     }
 
@@ -26,11 +30,18 @@ public class Biblioteca implements ControleDeProdutos{
         this.produtos.add(produto);
     }
 
-    public void removerProduto(Produto produto){
-        this.produtos.remove(produto);
-    }
-
-    public void avaliarProduto(Produto produto, int avaliacao){
-        produto.adicionarAvaliacao(dono, avaliacao);
+    public void removerProduto(String nome){        
+        for(Produto p : produtos){
+            if(p.getNome().equals(nome)){
+                if(p.getPreco() > 0){
+                    System.out.println("Não é possível remover jogos pagos.");
+                    return;
+                }
+                this.produtos.remove(p);
+                System.out.println("Produto removido!");
+                return;
+            }
+        }
+        System.out.println("Produto não foi encontrado.");
     }
 }

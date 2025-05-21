@@ -1,10 +1,5 @@
 package classes.produtos;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import classes.Avaliacao;
-import classes.usuarios.Cliente;
 import classes.usuarios.Desenvolvedor;
 import enums.TipoDeProduto;
 
@@ -14,7 +9,6 @@ public class Produto {
     private double preco;
     private Desenvolvedor desenvolvedor;
     private TipoDeProduto tipoDeProduto;
-    private List<Avaliacao> avaliacoes;
 
     public Produto(String nome, String descricao, double preco, Desenvolvedor desenvolvedor, TipoDeProduto tipoDeProduto){
         this.nome = nome;
@@ -22,18 +16,13 @@ public class Produto {
         this.preco = preco;
         this.desenvolvedor = desenvolvedor;
         this.tipoDeProduto = tipoDeProduto;
-        this.avaliacoes = new ArrayList<Avaliacao>();
     }
 
-    public void adicionarAvaliacao(Cliente avaliador, int avaliacao){
-        Avaliacao novaAvaliacao = new Avaliacao(avaliador, avaliacao);
-        this.avaliacoes.add(novaAvaliacao);
-    }
-
-    public void editarInformacoes(Produto produtoAtualizado){
-        this.nome = produtoAtualizado.nome;
-        this.descricao = produtoAtualizado.descricao;
-        this.preco = produtoAtualizado.preco;
+    @Override
+    public boolean equals(Object o){
+        Produto produto = (Produto) o;
+        if(this.nome.equals(produto.getNome()) && this.tipoDeProduto.equals(produto.getTipoDeProduto()) && this.desenvolvedor.equals(produto.getDesenvolvedor())) return true;
+        else return false;
     }
 
     public String getNome() {

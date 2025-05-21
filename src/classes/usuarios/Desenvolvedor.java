@@ -15,14 +15,10 @@ public class Desenvolvedor extends Usuario{
     }
 
     public void adicionarProduto(Produto produto){
-        this.acervo.adicionarProduto(produto);;
+        this.acervo.adicionarProduto(produto);
     }
 
-    public void removerProduto(Produto produto){
-        this.acervo.removerProduto(produto);;
-    }
-
-    public void editarProduto(Produto produto, Produto informacoesAtualizadas){
-        this.acervo.editarProduto(produto, informacoesAtualizadas);
+    public void removerProduto(String nome){
+        this.acervo.removerProduto(nome);
     }
 }

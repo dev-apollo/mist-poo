@@ -20,11 +20,7 @@ public class Cliente extends Usuario{
         this.biblioteca.adicionarProduto(produto);
     }
 
-    public void removerProduto(Produto produto) {
-        this.biblioteca.removerProduto(produto);
-    }
-
-    public void avaliarProduto(Produto produto, int avaliacao) {
-        this.biblioteca.avaliarProduto(produto, avaliacao);
+    public void removerProduto(String nome) {
+        this.biblioteca.removerProduto(nome);
     }
 }
